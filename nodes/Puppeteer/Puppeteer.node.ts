@@ -51,7 +51,7 @@ export const vmResolver = makeResolverFromLegacyOptions({
 });
 
 interface HeaderObject {
-	parameter: Record<string, string[;
+	parameter: Record<string, string[>;
 }
 
 interface QueryParameter {
