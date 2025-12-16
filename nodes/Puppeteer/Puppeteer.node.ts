@@ -126,7 +126,7 @@ async function handleOptions(
 	const pageCaching = options.pageCaching !== false;
 	const headers: HeaderObject = (options.headers || {}) as HeaderObject;
 
-	const requestHeaders = (headers.parameter || []).reduce((acc, header) => {
+	const requestHeaders = (headers.parameter || []).reduce((acc: any, header) => {
 		acc[header.name] = header.value;
 		return acc;
 	}, {});
@@ -141,8 +141,8 @@ async function handleOptions(
 		}
 	} else {
 		const userAgent =
-			requestHeaders['User-Agent'] ||
-			requestHeaders['user-agent'] ||
+			(requestHeaders as any)['User-Agent'] ||
+			(requestHeaders as any)['user-agent'] ||
 			DEFAULT_USER_AGENT;
 		await page.setUserAgent(userAgent);
 	}
